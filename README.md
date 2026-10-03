@@ -10,7 +10,7 @@ A flexible, high-performance Python module designed for edge computing (Raspberr
 - **Extensible Alert System:** Event-driven notifier supports Webhooks, Telegram, or internal API integrations with threshold suppression.
 - **RTSP & Hardware Friendly:** Multi-threaded stream ingestion designed for low latency on edge devices like Raspberry Pi 4/5.
 
-## Architecture Overvie
+## Architecture Overview
 
 [ RTSP Stream / Cam ]
         │
