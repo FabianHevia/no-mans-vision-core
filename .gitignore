@@ -218,3 +218,43 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ==========================================
+# Computer Vision & AI Specific Rules
+# ==========================================
+
+# AI Models & Weights (Ultralytics / YOLO / ONNX / TensorRT)
+*.pt
+*.onnx
+*.tflite
+*.engine
+*.weights
+*.bin
+*.param
+*.pb
+*.h5
+yolov8*.pt
+yolo11*.pt
+
+# Ultralytics auto-generated runs & test outputs
+runs/
+.ultralytics/
+
+# Test Media & Frame Dumps (Video & Images)
+*.mp4
+*.avi
+*.mkv
+*.mov
+captures/
+snapshots/
+output/
+dump/
+
+# Custom Local Configurations & Secrets
+config.local.yaml
+secrets.yaml
+*.secret.yaml
+
+# Uncommented IDE Settings
+.vscode/
+.idea/

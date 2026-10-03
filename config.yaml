@@ -1,0 +1,26 @@
+stream:
+  source: "rtsp://admin:123456@192.168.1.100:554/stream1" # Use 0 for local webcam
+  fps_target: 15
+
+motion:
+  min_area: 1200
+
+detector:
+  model_path: "yolov8n.pt" # Or yolov8n.onnx
+  confidence_threshold: 0.5
+  target_classes:
+    human: [0] # 0 = person
+    non_human: [16, 17, 18, 2, 7] # dog, cat, horse, car, truck, etc
+
+alerts:
+  enabled: true
+  cooldown_seconds: 10
+  channels:
+    console: true
+    telegram:
+      enabled: false
+      bot_token: ""
+      chat_id: ""
+    webhook:
+      enabled: false
+      url: ""

@@ -1,5 +1,7 @@
 # no-mans-vision-core
 
+## v0.1.0
+
 A flexible, high-performance Python module designed for edge computing (Raspberry Pi) and IP Camera streams (RTSP). It combines traditional OpenCV motion detection with lightweight AI object classification to minimize false positives and measure spatial occupation.
 
 ## Key Features
