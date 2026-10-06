@@ -1,0 +1,43 @@
+# config.example.yaml
+stream:
+  source: "rtsp://user:password@192.168.1.50:554/stream1" # O usa 0 para webcam local
+  fps_target: 15
+
+mode: "perimeter" # Opciones: "perimeter" (seguridad) o "occupancy" (clínico/limpieza)
+
+roi:
+  enabled: true
+  # Puntos ordenados del polígono (X, Y) expresados en porcentajes de pantalla (0.0 a 1.0)
+  polygon:
+    - [0.10, 0.20]
+    - [0.90, 0.20]
+    - [0.90, 0.85]
+    - [0.10, 0.85]
+
+motion:
+  min_area: 1200 # Píxeles mínimos para considerar movimiento
+
+detector:
+  model_path: "yolov8n.pt" # O yolov8n.onnx
+  confidence_threshold: 0.5
+  target_classes:
+    human: [0] # Clase 0 en COCO = person
+    non_human: [16, 17, 18, 2, 7] # dog, cat, horse, car, truck
+
+rules:
+  perimeter:
+    cooldown_seconds: 15 # Evita alertas repetidas por la misma persona
+  occupancy:
+    required_empty_minutes: 3 # Minutos continuos desocupados para pedir sanitización
+
+alerts:
+  enabled: true
+  channels:
+    console: true
+    telegram:
+      enabled: false
+      bot_token: "YOUR_BOT_TOKEN"
+      chat_id: "YOUR_CHAT_ID"
+    webhook:
+      enabled: false
+      url: "https://api.limchile.cl/v1/alerts"
